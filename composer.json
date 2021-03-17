@@ -1,0 +1,46 @@
+{
+  "name": "jtrw/feature-flags",
+  "type": "library",
+  "description": "Feature Flags or Feature Switcher",
+  "keywords": [
+    "Nil Borodulia",
+    "jtrw",
+    "Feature Flags",
+    "Feature Switcher"
+  ],
+  "homepage": "https://github.com/jtrw/jtrw/feature-flags",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Nil",
+      "email": "brdnlsrg@gmail.com",
+      "homepage": "https://github.com/jtrw",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php" : ">=7.4.1",
+  },
+  "require-dev": {
+    "phpunit/phpunit" : ">=8.0",
+    "squizlabs/php_codesniffer": "^3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Jtrw\\FeatureFlags\\": "src"
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "check-style": "phpcs src tests",
+    "fix-style": "phpcbf src tests"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  }
+}
