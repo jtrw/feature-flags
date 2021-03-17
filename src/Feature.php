@@ -35,11 +35,12 @@ class Feature
      */
     public static function isEnabled(string $key, string $env = null): bool
     {
-        if (!array_key_exists($key, static::$options->getFeatures())) {
+        $features = static::$options->getFeatures();
+        if (!array_key_exists($key, $features)) {
             throw new FeatureNotFoundException($key);
         }
         
-        return static::isTrueEnvironment($env) && static::$options[$key] === true;
+        return static::isTrueEnvironment($env) && $features[$key] === true;
     } // end isEnabled
     
     /**
@@ -49,7 +50,7 @@ class Feature
     public static function isTrueEnvironment(string $env = null): bool
     {
         $envs = static::$options->getEnvironments();
-        if (static::isEnvClosure($env, $envs)) {
+        if ($env && static::isEnvClosure($env, $envs)) {
             return $envs[$env]();
         }
         
